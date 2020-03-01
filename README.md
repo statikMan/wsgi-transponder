@@ -3,15 +3,15 @@
 It is a glue between a wsgi server and anything than can serve http 1.0/1.1 protocol.
 Why "transponder"? 
 
-That's because it repack requests HTTP headers and content within the WSGI application script before transmit it to the worker web application. Then, unpack headers and content and emit them to the WSGI server. 
+That's because it repacks requests HTTP headers and content within the WSGI application script before transmitting it to the worker web application. Then, it unpacks headers and content and emits them to the WSGI server. 
 
-It is pretty like a proxy, but with operation that may alter the original request, such as headers order.
+It is pretty like a proxy, but with operations that may alter the original request, such as headers'orders.
 
-It should works well with non blocking web applications.
+It should work well with non-blocking web applications.
 
 ## Motivation
 
-My hoster already spports WSGI applications, so just need a glue to support a PSGI application, this is the glue.
+My hoster already supports WSGI applications, therefore, it just needs a glue to support a PSGI application, and the transponder stands as this glue.
 More on [this blog post](https://ngs.ma/index.php/2020/03/01/deploy-mojolicious-app-on-shared-hosting/)
 
 ## Prerequisites
@@ -21,7 +21,7 @@ More on [this blog post](https://ngs.ma/index.php/2020/03/01/deploy-mojolicious-
 
 ## Installation
 
-1. Create a WSGI application on a hoster that supports this technologie
+1. Create a WSGI application on a hoster that supports this technology
 2. Download or upload `wsgi_transponder.py` in your webapp root folder
 ```bash
 curl -O https://raw.githubusercontent.com/xlat/wsgi-transponder/master/wsgi_transponder.py
@@ -37,7 +37,7 @@ curl -O https://raw.githubusercontent.com/xlat/wsgi-transponder/master/transpond
 
 ## Configuration 
 
-The configuration file must be name `transponder.config.json` and be in the same folder than `wsgi_transponder.py`, and be a valid JSON file with the following structure:
+The configuration file must be named `transponder.config.json` and be in the same folder than `wsgi_transponder.py`, and be a valid JSON file with the following structure:
 ```JSON	
 	{
 		"profiles": {
@@ -69,8 +69,8 @@ The configuration file must be name `transponder.config.json` and be in the same
 
 ### profiles (object)
 
-The `profiles` key is the place you will defines your application profiles.
-A profile consist on sub keys described below:
+The `profiles` key is the place where you will define your application profiles.
+A profile consists of sub keys described below:
 
 #### arguments (array or string)
 
@@ -86,7 +86,7 @@ The `arguments` key defines the command line that will be invoked to start your 
 
 #### shell (boolean)
 
-This parameter let's change the [subprocess.Popen]() shell argument, it's value may depend on your needs/platform.
+This parameter let's change the [subprocess.Popen](https://docs.python.org/2/library/subprocess.html#subprocess.Popen) shell argument, it's value may depend on your needs/platform.
 
 #### host (string)
 
@@ -98,7 +98,7 @@ The `port` parameter is the port number where your worker is listening.
 
 #### force-accept-encoding (boolean)
 
-The `force-accept-encoding` parameter is a workaround for application server that strip `Accept-Encoding` HTTP header, such as `Phusion Passenger`.
+The `force-accept-encoding` parameter is a workaround for application servers that strip `Accept-Encoding` HTTP header, such as `Phusion Passenger`.
 
 #### accept-encoding (string)
 
@@ -106,15 +106,15 @@ The `accept-encoding` parameter is to be used aside the `force-accept-encoding` 
 
 #### trace (filename)
 
-The `trace` parameter define the filename to trace logs from the transponder.
+The `trace` parameter defines the filename to trace logs from the transponder.
 
 #### debug (boolean)
 
-The `debug` parameter, when set to `true` make transponder to trace more things in the trace file.
+The `debug` parameter, when set to `true` makes transponder to trace more things in the trace file.
 
 ### default (string)
 
-The `default` key define the default profile to use.
+The `default` key defines the default profile to use.
 To override configuration default profile, use the `WSGIT_PROFILE` environment variable:
 ```bash
 export WSGIT_PROFILE=plackup
@@ -131,8 +131,8 @@ On most hosters you define environment variables directly in the WSGI applicatio
 
 ## Bugs
 
-* Some WSGI server may drop "Accept-Enconding" header, disabling defacto gzip compression (workaround: see configuration)
-* may have a lots, only GET and POST http verbs have been tested, so feel free to [open an issue](https://github.com/xlat/wsgi-transponder/issues)
+* Some WSGI servers may drop "Accept-Enconding" header, disabling defacto gzip compression (workaround: see configuration)
+* may be a lot more, only GET and POST http verbs have been tested, so feel free to [open an issue](https://github.com/xlat/wsgi-transponder/issues)
 	
 ## Limitations
 
