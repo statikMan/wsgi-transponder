@@ -11,7 +11,7 @@ It should work well with non-blocking web applications.
 
 ## Motivation
 
-My hoster already supports WSGI applications, therefore, it just needs a glue to support a PSGI application, and the transponder stands as this glue.
+My hoster already supports WSGI applications, therefore, it just needs a glue to support a PSGI application, and the transponder stands for this glue.
 More on [this blog post](https://ngs.ma/index.php/2020/03/01/deploy-mojolicious-app-on-shared-hosting/)
 
 ## Prerequisites
