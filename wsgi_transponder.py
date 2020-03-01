@@ -117,9 +117,9 @@ def application(environ, start_response):
 				trace_debug("  env["+k+"] = " + str(environ[k]))
 
 		#inject Accept-Encoding : todo, should be based on HTTP_USER_AGENT; or from config/env var
-		if options['force-content-encoding']:
-			trace_debug("Injecting Content-Encoding = " + options['content-encoding'])
-			environ['HTTP_ACCEPT_ENCODING']=options['content-encoding']
+		if options['force-accept-encoding']:
+			trace_debug("Injecting Accept-Encoding = " + options['accept-encoding'])
+			environ['HTTP_ACCEPT_ENCODING']=options['accept-encoding']
 
 		header = environ['REQUEST_METHOD'] + " " + environ['PATH_INFO'] + " " + environ['SERVER_PROTOCOL'] + "\n"
 		input = environ['wsgi.input']

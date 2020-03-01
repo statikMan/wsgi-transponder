@@ -6,8 +6,8 @@
 			],
 			"host": "localhost",
 			"port": 8080,
-			"force-content-encoding": true,
-			"content-encoding": "gzip, deflate, br",
+			"force-accept-encoding": true,
+			"accept-encoding": "gzip, deflate, br",
 			"shell": true,
 			"debug": false,
 			"trace": "transponder.log"
@@ -18,8 +18,8 @@
 			"port": 5000,
 			"shell": true,
 			"trace": "transponder.log",
-			"force-content-encoding": true,
-			"content-encoding": "gzip, deflate, br",
+			"force-accept-encoding": true,
+			"accept-encoding": "gzip, deflate, br",
 			"debug": false
 		},
 		"mojo": {
@@ -34,8 +34,8 @@
 			"port": 5000,
 			"shell": true,
 			"trace": "transponder.log",
-			"force-content-encoding": true,
-			"content-encoding": "gzip, deflate, br",
+			"force-accept-encoding": true,
+			"accept-encoding": "gzip, deflate, br",
 			"debug": false
 		}
 	},
