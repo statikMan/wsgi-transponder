@@ -1,0 +1,43 @@
+{	
+	"profiles": {
+		"hypnotoad": {
+			"arguments": [
+				"~/local/bin/hypnotoad -f mywebapp.pl"
+			],
+			"host": "localhost",
+			"port": 8080,
+			"force-content-encoding": true,
+			"content-encoding": "gzip, deflate, br",
+			"shell": true,
+			"debug": false,
+			"trace": "transponder.log"
+		},
+		"plackup": {	
+			"arguments": "plackup -p 5000 mywebapp .pl",
+			"host": "localhost",
+			"port": 5000,
+			"shell": true,
+			"trace": "transponder.log",
+			"force-content-encoding": true,
+			"content-encoding": "gzip, deflate, br",
+			"debug": false
+		},
+		"mojo": {
+			"arguments": [
+				"/bin/perl", 
+				"mywebapp.pl", 
+				"daemon", 
+				"-l", 
+				"http://*:5000"
+			],
+			"host": "localhost",
+			"port": 5000,
+			"shell": true,
+			"trace": "transponder.log",
+			"force-content-encoding": true,
+			"content-encoding": "gzip, deflate, br",
+			"debug": false
+		}
+	},
+	"default": "hypnotoad"
+}
